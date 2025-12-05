@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-Video AI App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎬 Text-to-Video AI Generator</h1>
+            <p>Create HD videos with AI-powered narration</p>
+        </header>
+
+        <main>
+            <div class="form-section">
+                <h2>Video Settings</h2>
+                
+                <div class="form-group">
+                    <label for="videoPrompt">Video Description *</label>
+                    <textarea 
+                        id="videoPrompt" 
+                        rows="4" 
+                        placeholder="Describe the video you want to create... (e.g., 'A serene sunset over the ocean with waves gently crashing on the shore')"
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="resolution">Resolution</label>
+                        <select id="resolution">
+                            <option value="720p">720p (HD)</option>
+                            <option value="1080p">1080p (Full HD)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="aspectRatio">Aspect Ratio</label>
+                        <select id="aspectRatio">
+                            <option value="16:9">16:9 (Landscape)</option>
+                            <option value="9:16">9:16 (Portrait)</option>
+                            <option value="1:1">1:1 (Square)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="negativePrompt">Negative Prompt (Optional)</label>
+                    <input 
+                        type="text" 
+                        id="negativePrompt" 
+                        placeholder="What to avoid in the video (e.g., 'blurry, low quality, distorted')"
+                    >
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Audio Narration</h2>
+                
+                <div class="form-group">
+                    <label for="narrationText">Narration Text *</label>
+                    <textarea 
+                        id="narrationText" 
+                        rows="3" 
+                        placeholder="Enter the text you want to be narrated..."
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="voice">Voice</label>
+                    <select id="voice">
+                        <option value="Jennifer (English (US)/American)">Jennifer - American</option>
+                        <option value="Dexter (English (US)/American)">Dexter - American</option>
+                        <option value="Ava (English (AU)/Australian)">Ava - Australian</option>
+                        <option value="Cecil (English (GB)/British)">Cecil - British</option>
+                        <option value="Sterling (English (GB)/British)">Sterling - British</option>
+                        <option value="Sumita (English (IN)/Indian)">Sumita - Indian</option>
+                        <option value="Navya (English (IN)/Indian)">Navya - Indian</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="generateBtn" class="btn-primary">Generate Video</button>
+                <button id="generateAudioBtn" class="btn-secondary">Generate Audio Only</button>
+            </div>
+
+            <div id="status" class="status-section" style="display: none;">
+                <div class="status-content">
+                    <div class="spinner"></div>
+                    <p id="statusText">Processing...</p>
+                </div>
+            </div>
+
+            <div id="results" class="results-section" style="display: none;">
+                <h2>Results</h2>
+                <div id="videoResult" style="display: none;">
+                    <h3>Generated Video</h3>
+                    <video id="videoPlayer" controls></video>
+                    <a id="videoDownload" class="btn-download" download>Download Video</a>
+                </div>
+                <div id="audioResult" style="display: none;">
+                    <h3>Generated Audio</h3>
+                    <audio id="audioPlayer" controls></audio>
+                    <a id="audioDownload" class="btn-download" download>Download Audio</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Google Veo 3 & PlayAI TTS | Created by Asamwar Kiran</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
